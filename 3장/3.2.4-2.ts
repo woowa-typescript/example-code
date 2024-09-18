@@ -4,6 +4,7 @@ const PromotionList = [
   { type: "card", name: "chee-up" },
 ];
 
-type ElementOf<T> = (typeof T)[number];
+type ElementOf<T extends readonly any[]> = T[number];
+
 // type PromotionItemType = { type: string; name: string }
-type PromotionItemType = ElementOf<PromotionList>;
+type PromotionItemType = ElementOf<typeof PromotionList>;
